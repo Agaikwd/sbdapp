@@ -1,0 +1,56 @@
+pipeline {
+  agent any
+    stages {
+      stage('Build & Test') {
+        agent {
+          docker { 
+            image 'maven:latest' 
+            args '-u root'
+          }
+        }
+        steps {
+          sh 'ls -ltr'
+          sh 'mvn clean package'
+        }
+      }
+      stage('Static Code Analysis') {
+          agent {
+            docker { 
+              image 'maven:latest' 
+              args '-u root'
+            }
+          }
+          environment {
+            SONAR_URL = "http://65.1.114.138:9000"
+          }
+          steps {
+            withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+              sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+            }
+          }
+      }
+      stage('Build & Push Docker Image') {
+        agent {
+          docker {
+            image 'docker'
+          }
+        }
+        environment {
+          DOCKER_IMAGE = "ashudhub/sbdapp:${BUILD_NUMBER}"
+          // DOCKERFILE_LOCATION = "Dockerfile"
+          REGISTRY_CREDENTIALS = credentials('docker')
+          HOME = "${env.WORKSPACE}"
+        }
+        steps {
+          script {
+            sh 'docker build -t ${DOCKER_IMAGE} .'
+            def dockerImage = docker.image("${DOCKER_IMAGE}")
+            docker.withRegistry('https://hub.docker.com/', 'docker') {
+              dockerImage.push()
+            }
+          }
+        }
+      }
+    }
+}
+          
