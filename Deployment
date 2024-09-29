@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbdapp-deployment
+  labels:
+    app: sbdapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sbdapp
+  template:
+    metadata:
+      labels:
+        app: sbdapp
+    spec:
+      containers:
+      - name: sbdapp
+        image: ashudhub/sbdapp
+        ports:
+        - containerPort: 8080
+
+
