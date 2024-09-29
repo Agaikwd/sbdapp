@@ -28,7 +28,7 @@ public class WelcomeRestController {
 	@GetMapping("/greet")
 	public String greetMsg() {
 		logger.info("***** greetMsg() execution start *****");
-		String msg = "Your Heart Brings me Home";
+		String msg = "Your Heart Brings me Home!!";
 		System.out.println("testing git collaboration");
 		logger.info("***** greetMsg() execution end *****");
 		int i = 10;
