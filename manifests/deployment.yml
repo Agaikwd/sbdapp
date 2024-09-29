@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: sbdapp
-        image: ashudhub/sbdapp:8
+        image: ashudhub/sbdapp:10
         ports:
         - containerPort: 8080
