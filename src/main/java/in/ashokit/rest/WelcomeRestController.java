@@ -28,67 +28,7 @@ public class WelcomeRestController {
 	@GetMapping("/greet")
 	public String greetMsg() {
 		logger.info("***** greetMsg() execution start *****");
-		String msg = "As leaves fleeting fall from above
-									Under skies ever here
-									Darkness comes to the door
-									Table place set before its honored seat
-									The chase has come and gone
-									Yearning to be let go
-									Colors in the mirror
-									Better still, to inform
-									Skies ever here
-									Been this way throughout time
-									Been this way throughout my life
-									Your heart brings me home
-									Been this way throughout time
-									From the tumult of the heave
-									Not born of belief
-									Your heart brings me home
-									Brings me home
-									As seasons come here to rest
-									Lilting rays aglow
-									Obsidian flow
-									Fire hewn within the stone
-									Life that has come before
-									Looming fears of the wilt
-									Shadows at the door
-									Colors in the mirror
-									See upcoming rock shows
-									Get tickets for your favorite artists
-
-									You might also like
-									Original Face
-									YOB
-									Lungs Reach
-									YOB
-									Marrow
-									YOB
-
-									Been this way throughout time
-									Been this way throughout my life
-									Your heart brings me home
-									Been this way throughout my life
-									From the tumult of the heave
-									Not born of belief
-									Our nature redeemed
-									Unburden our grief
-									Your heart brings me home
-
-									Lifting off, renewed
-									Astral form in flight
-									Enthrall every hue
-									Unknown to our eyes
-									Every cell of being
-									Outside of mind
-									Mantra not apart
-									From ineffable heart
-
-									Endless worlds in endless mind
-									Caught in dreams of our own design
-									Dressed and groomed tradition dead
-									All around you the infinite
-									Seeing
-									Beauty in falling leaves";
+		String msg = "Your Heart Brings me Home";
 		System.out.println("testing git collaboration");
 		logger.info("***** greetMsg() execution end *****");
 		int i = 10;
