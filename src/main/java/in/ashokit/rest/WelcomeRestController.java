@@ -18,7 +18,7 @@ public class WelcomeRestController {
 	@GetMapping
 	public String welcomeMsg() {
 		logger.info("***** welcomeMsg() execution start *****");
-		String msg = "Beauty in Falling Leaves!!!";
+		String msg = "Beauty in Falling Leaves....!!";
 		logger.info("***** welcomeMsg() execution end *****");
 		String s = "hello";
 		logger.info("******************************************************************");
@@ -37,6 +37,4 @@ public class WelcomeRestController {
 		logger.info("***** ***************************** *****");
 		return msg;
 	}
-	
-	
 }
